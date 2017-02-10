@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170210075916) do
     t.string "name"
     t.string "price"
     t.string "made_from"
+    t.string "picture"
   end
 
 end

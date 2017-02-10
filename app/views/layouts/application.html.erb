@@ -3,23 +3,33 @@
   <head>
     <title>GummiBearKingdom</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if current_user %>
-      <ul>
-        <li><%= current_user.email %></li>
-        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-      </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to "Login", 'login' %></a></li>
-        <li><%= link_to "Signup", 'signup' %></a></li>
-      </ul>
-    <% end %>
+    <div class="navbar-fixed">
+      <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="/" class="brand-logo">Review It</a>
+          <% if current_user %>
+            <ul class="right hide-on-med-and-down">
+              <li><div class="chip"><img src="current_user.pic">
+                <%= current_user.first_name %> <%= current_user.last_name %>
+              </div></li>
+              <li><li><%= link_to "Products", products_path %></li></li>
+              <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+            </ul>
+          <% else %>
+            <ul class="right hide-on-med-and-down">
+              <li><%= link_to "Login", 'login' %></a></li>
+              <li><%= link_to "Signup", 'signup' %></a></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </div>
+
     <%= yield %>
   </body>
 </html>

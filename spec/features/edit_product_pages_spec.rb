@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "the add a product process" do
-  it "adds a new product" do
+describe "the edit a product process" do
+  it "edits a product" do
     visit signup_path
     fill_in 'First name', :with => 'Kevin'
     fill_in 'Last name', :with => 'Finley'

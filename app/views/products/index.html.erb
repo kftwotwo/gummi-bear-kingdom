@@ -1,7 +1,25 @@
-<%= link_to "New product", new_product_path %>
+<div class="center">
+  <h4><%= link_to "New product", new_product_path, class: 'btn' %></h4>
+</div>
 
 <ul>
   <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %> <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete" }%></li>
+    <li><div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="product.pitucre">
+          </div>
+          <div class="card-content">
+            <h5><%= link_to product.name, product_path(product) %></h5>
+            $<%= product.price %> -
+            Made In <%= product.made_from %>
+          </div>
+          <div class="card-action">
+            <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete" }%>
+          </div>
+        </div>
+      </div>
+    </div></li>
   <% end %>
 </ul>

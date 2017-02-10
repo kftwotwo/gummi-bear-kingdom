@@ -3,22 +3,25 @@
     <ul>
       <% @product.reviews.each do |review| %>
         <li>
-          <div class="col s12 m7">
-              <div class="card horizontal">
-                <div class="card-image">
-                  <img src='current_user.picture'>
-                </div>
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <p><%= review.name %></p>
-                    <p><%= review.comment %></p>
+          <div class="card medium">
+            <div class="col s12 m7">
+                <div class="card horizontal">
+                  <div class="card-image">
+                    <img src='current_user.picture'>
                   </div>
-                  <div class="card-action">
-                    <%= link_to "Edit", edit_product_review_path(@product, review) %> |<%= link_to "Delete", product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"} %></li>
+                  <div class="card-stacked">
+                    <div class="card-content">
+                      <p><%= review.name %></p>
+                      <p><%= review.comment %></p>
+                    </div>
+                    <div class="card-action">
+                      <%= link_to "Edit", edit_product_review_path(@product, review) %> |<%= link_to "Delete", product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"} %></li>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div></li>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% else %>

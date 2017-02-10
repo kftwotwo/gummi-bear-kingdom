@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: gummi-bear-kingdom_development
+
+test:
+  <<: *default
+  database: gummi-bear-kingdom_test
+
+production:
+  <<: *default
+  database: gummi-bear-kingdom_production
+  username: gummi-bear-kingdom
+  password: <%= ENV['GUMMI-BEAR-KINGDOM_DATABASE_PASSWORD'] %>

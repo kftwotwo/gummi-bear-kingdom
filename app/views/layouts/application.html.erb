@@ -14,7 +14,7 @@
           <a id="logo-container" href="/" class="brand-logo">Review It</a>
           <% if current_user %>
             <ul class="right hide-on-med-and-down">
-              <li><div class="chip"><img src="current_user.pic">
+              <li><div class="chip"><img src="<%= current_user.pic %>">
                 <%= current_user.first_name %> <%= current_user.last_name %>
               </div></li>
               <li><li><%= link_to "Products", products_path %></li></li>

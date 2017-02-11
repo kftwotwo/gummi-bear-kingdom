@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :require_user, only: [:index, :show]
-  
+
   def index
     @products = Product.all
   end
@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product[:user_id]= current_user.id
     if @product.save
       redirect_to  products_path
     else
@@ -43,6 +44,6 @@ class ProductsController < ApplicationController
 
 private
   def product_params
-    params.require(:product).permit(:name, :price, :made_from, :picture)
+    params.require(:product).permit(:name, :price, :made_from, :picture, :user_id)
   end
 end

@@ -1,11 +1,11 @@
 <div class="center">
-  <h4><%= link_to "New product", new_product_path, class: 'btn' %></h4>
-</div>
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <div class="row">
-        <div class="col s12 m7">
+  <div class="row">
+    <div class="col s12 m7">
+      <h4><%= link_to "New product", new_product_path, class: 'btn' %></h4>
+    </div>
+    <ul>
+      <% @products.each do |product| %>
+        <li>
           <div class="card large">
             <div class="card-image">
               <img src="<%= product.picture %>">
@@ -18,8 +18,8 @@
             <div class="card-action">
               <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete" }%>
             </div>
-          </div>
-        </div>
-      </div></li>
-  <% end %>
-</ul>
+          </div></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

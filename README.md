@@ -47,4 +47,4 @@ Materialize
 
 *This is under a MIT License*
 
-Copyright (c) 2016 **_Kevin Finley_**
+Copyright (c) 2017 **_Kevin Finley_**

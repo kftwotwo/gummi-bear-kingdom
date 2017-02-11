@@ -3,24 +3,23 @@
 </div>
 <ul>
   <% @products.each do |product| %>
-    <li><div class="card large">
+    <li>
       <div class="row">
         <div class="col s12 m7">
-          <div class="card">
+          <div class="card large">
             <div class="card-image">
-              <img src="product.pitucre">
+              <img src="<%= product.picture %>">
             </div>
             <div class="card-content">
-              <h5><%= link_to product.name, product_path(product) %></h5>
-              $<%= product.price %> -
-              Made In <%= product.made_from %>
+              <p><%= link_to product.name, product_path(product) %></p>
+              <p></p>
+              <small>By <%= User.find(product.user_id).first_name %> <%= User.find(product.user_id).last_name %></small>
             </div>
             <div class="card-action">
               <%= link_to "Edit", edit_product_path(product) %> | <%= link_to "Delete", product_path(product), :data => {:confirm => "You sure?", :method => "delete" }%>
             </div>
           </div>
         </div>
-      </div>
-    </div></li>
+      </div></li>
   <% end %>
 </ul>

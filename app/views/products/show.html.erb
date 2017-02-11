@@ -1,32 +1,28 @@
 <div class="row">
-  <% if @product.reviews.any? %>
-    <ul>
-      <% @product.reviews.each do |review| %>
-        <li>
-          <div class="card medium">
-            <div class="col s12 m7">
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src='current_user.picture'>
+  <div class="col s12 m7">
+    <% if @product.reviews.any? %>
+      <ul>
+        <% @product.reviews.each do |review| %>
+          <li>
+            <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p><%= review.name %></p>
+                    <p><%= review.comment %></p>
+                    <small>By <%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %></small>
                   </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p><%= review.name %></p>
-                      <p><%= review.comment %></p>
-                    </div>
-                    <div class="card-action">
-                      <%= link_to "Edit", edit_product_review_path(@product, review) %> |<%= link_to "Delete", product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"} %></li>
-                    </div>
+                  <div class="card-action">
+                    <%= link_to "Edit", edit_product_review_path(@product, review) %> |<%= link_to "Delete", product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"} %>
                   </div>
                 </div>
               </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <h4>Sorry ther are no reviews yet. You will be the first to review this product!</h4>
-  <% end %>
+            </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h4>Sorry ther are no reviews yet. You will be the first to review this product!</h4>
+    <% end %>
+  </div>
 </div>
 
 

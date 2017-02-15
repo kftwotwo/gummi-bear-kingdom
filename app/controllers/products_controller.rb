@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product[:user_id]= current_user.id
     if @product.save
+      flash[:notice] = 'Saved!'
       redirect_to  products_path
     else
       render :new
